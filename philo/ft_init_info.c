@@ -6,7 +6,7 @@
 /*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 15:39:58 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/18 17:25:06 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:45:42 by aleferra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,6 @@ t_bool	ft_parse(int argc, char **argv)
 		ft_putstr("Il ne peut avoir plus de 1024 philosophers. \n");
 		return (FALSE);
 	}
-	if (ft_atoi(argv[1]) == 1)
-		return (FALSE);
 	return (TRUE);
 }
 

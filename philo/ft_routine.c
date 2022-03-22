@@ -6,7 +6,7 @@
 /*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:21:08 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 16:48:40 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:48:59 by aleferra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ void	*routine(void *arg)
 
 	philo = (t_philosopher *) arg;
 	ft_put_message(philo, THINK);
+	if (philo->info.number_of_philosophers == 1)
+		ft_put_message(philo, FORK);
 	ft_wait_pair(philo);
-	while (1)
+	while (1 && philo->info.number_of_philosophers != 1)
 	{
 		ft_take_fork(philo);
 		ft_eat(philo);

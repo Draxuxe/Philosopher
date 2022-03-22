@@ -6,7 +6,7 @@
 /*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:26:57 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 16:51:34 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:22:08 by aleferra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,24 @@ void	ft_putstr(char *str)
 
 void	ft_put_message(t_philosopher *philo, int message)
 {
-	int	actu_time;
+	int		actu_time;
 
 	pthread_mutex_lock(&philo->deadischeck);
 	pthread_mutex_lock(philo->info.writter);
 	if (philo->dead == FALSE)
 	{	
 		actu_time = ft_time() - philo->info.time_to_start;
-		ft_putnbr(actu_time);
-		ft_putstr(" ms philo numero ");
-		ft_putnbr(philo->id);
 		if (message == THINK)
-			ft_putstr(" is thinking\n");
+			printf("%d ms philo numero %d is thinking\n", actu_time, philo->id);
 		else if (message == SLEEP)
-			ft_putstr(" is sleeping\n");
+			printf("%d ms philo numero %d is sleeping\n", actu_time, philo->id);
 		else if (message == FORK)
-			ft_putstr(" has taken a fork\n");
+			printf("%d ms philo numero %d has taken a fork\n",
+				actu_time, philo->id);
 		else if (message == EAT)
-			ft_putstr(" is eating\n");
+			printf("%d ms philo numero %d is eating\n", actu_time, philo->id);
 		else if (message == DIE)
-			ft_putstr(" died\n");
+			printf("%d ms philo numero %d died\n", actu_time, philo->id);
 	}
 	pthread_mutex_unlock(philo->info.writter);
 	pthread_mutex_unlock(&philo->deadischeck);
