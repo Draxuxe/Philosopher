@@ -6,7 +6,7 @@
 /*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:21:08 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 15:39:04 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:48:40 by aleferra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	ft_take_fork(t_philosopher *philo)
 {
 	pthread_mutex_lock(&philo->info.forks[philo->id - 1]);
 	pthread_mutex_lock(&philo->info.forks[philo->id]);
+	pthread_mutex_lock(&philo->nocrash);
 	philo->last_meal = ft_time() - philo->info.time_to_start;
+	pthread_mutex_unlock(&philo->nocrash);
 	ft_put_message(philo, FORK);
 	ft_put_message(philo, FORK);
 }
@@ -35,10 +37,10 @@ void	ft_eat(t_philosopher *philo)
 	ft_smart_usleep(philo->info.time_to_eat);
 	pthread_mutex_unlock(&philo->info.forks[philo->id - 1]);
 	pthread_mutex_unlock(&philo->info.forks[philo->id]);
-	/*
+	pthread_mutex_lock(&philo->lastmealcheck);
 	if (philo->info.number_of_times_each_philosopher_must_eat != -1)
 		philo->number_of_eat++;
-	*/
+	pthread_mutex_unlock(&philo->lastmealcheck);
 }
 
 void	ft_sleep(t_philosopher *philo)

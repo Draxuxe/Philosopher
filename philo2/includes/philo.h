@@ -6,7 +6,7 @@
 /*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:08:51 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 14:34:11 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:14:43 by aleferra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_philosopher {
 	pthread_t				thread_philo;
 	pthread_mutex_t			nocrash;
 	pthread_mutex_t			deadischeck;
+	pthread_mutex_t			lastmealcheck;
 	int						value;
 	int						last_meal;
 	int						id;
