@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:36:59 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 12:09:03 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 14:09:10 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	launcher(t_philosopher *philo)
 {
-	int				err;
 	t_philosopher	*tmp;
 
 	tmp = philo;
 	while (tmp)
 	{
-		err = pthread_create(&tmp->thread_philo, NULL, routine, tmp);
-		if (err)
-			pthread_detach(tmp->thread_philo);
+		if (pthread_create(&tmp->thread_philo, NULL, routine, tmp))
+			return ;
+		if (pthread_detach(tmp->thread_philo))
+			return ;
 		tmp = tmp->next;
 	}
 	tmp = philo;
-	err = pthread_create(&tmp->monitor, NULL, check_philo, tmp);
-	if (err)
-		pthread_detach(tmp->monitor);
+	if (pthread_create(&tmp->monitor, NULL, check_philo, tmp))
+		if (pthread_detach(tmp->monitor))
+			return ;
 	while (tmp)
 	{
 		pthread_join(tmp->thread_philo, NULL);

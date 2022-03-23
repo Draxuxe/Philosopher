@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:58:26 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 12:09:02 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 13:46:17 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ t_bool	clear_philo(t_philosopher **philo)
 	{
 		clear = tmp;
 		tmp = tmp->next;
+		pthread_mutex_destroy(&clear->deadischeck);
+		pthread_mutex_destroy(&clear->lastmealcheck);
+		pthread_mutex_destroy(&clear->nocrash);
 		free(clear);
 	}
 	free(tmp);
