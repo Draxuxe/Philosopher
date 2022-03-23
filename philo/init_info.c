@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_info.c                                     :+:      :+:    :+:   */
+/*   init_info.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 15:39:58 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 17:45:42 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:01:06 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "Includes/philo.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 	char	*str1;
@@ -28,7 +28,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((unsigned char) str1[i] - str2[i]);
 }
 
-t_bool	ft_str_is_int(char *str)
+static t_bool	str_is_int(char *str)
 {
 	int	index;
 
@@ -38,62 +38,62 @@ t_bool	ft_str_is_int(char *str)
 	if (((index == 10 && ft_strncmp(str, "2147483647", 10) <= 0) || index < 10)
 		&& ft_atoi(str) >= 1)
 		return (TRUE);
-	ft_putstr("Un argument est superieur au int max ou inferieur à 1.\n");
+	ft_putstr("Arguments must not be greater than the int max or lower than 1.\n");
 	return (FALSE);
 }
 
-t_bool	ft_str_is_digit(char *str)
+static t_bool	str_is_digit(char *str)
 {
 	int	index;
 
 	index = 0;
 	if (!str[0])
 	{
-		ft_putstr("Un argument est vide.\n");
+		ft_putstr("An argument is empty.\n");
 		return (FALSE);
 	}
 	while (str[++index])
 	{
 		if (str[index] < '0' || str[index] > '9')
 		{
-			ft_putstr("Un argument n'est pas uniquement un digital.\n");
+			ft_putstr("the arguments must only contains digit.\n");
 			return (FALSE);
 		}
 	}
 	return (TRUE);
 }
 
-t_bool	ft_parse(int argc, char **argv)
+static t_bool	parse(int argc, char **argv)
 {
 	int	index;
 
 	index = 0;
 	if (argc != 5 && argc != 6)
 	{
-		ft_putstr("Nombre d'arguement incorrect.\n");
+		ft_putstr("There must be 4 or 5 args with the executable.\n");
 		return (FALSE);
 	}
 	while (argv[++index])
 	{
-		if (!ft_str_is_digit(argv[index]))
+		if (!str_is_digit(argv[index]))
 			return (FALSE);
-		if (!ft_str_is_int(argv[index]))
+		if (!str_is_int(argv[index]))
 			return (FALSE);
 	}
 	if (ft_atoi(argv[1]) > 1024)
 	{
-		ft_putstr("Il ne peut avoir plus de 1024 philosophers. \n");
+		ft_putstr("Cannot have more than 1024 threads.\n");
 		return (FALSE);
 	}
 	return (TRUE);
 }
 
-t_bool	ft_init_info(int argc, char **argv, t_info *info)
+t_bool	init_info(int argc, char **argv, t_info *info)
 {
 	int	index;
 
 	index = -1;
-	if (!ft_parse(argc, argv))
+	if (!parse(argc, argv))
 		return (FALSE);
 	info->number_of_philosophers = ft_atoi(argv[1]);
 	info->time_to_die = ft_atoi(argv[2]);
@@ -103,7 +103,7 @@ t_bool	ft_init_info(int argc, char **argv, t_info *info)
 		info->number_of_times_each_philosopher_must_eat = ft_atoi(argv[5]);
 	else
 		info->number_of_times_each_philosopher_must_eat = -1;
-	info->time_to_start = ft_time();
+	info->time_to_start = get_time();
 	info->writter = malloc(sizeof(pthread_mutex_t));
 	if (!info->writter)
 		return (FALSE);

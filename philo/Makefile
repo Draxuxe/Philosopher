@@ -23,18 +23,18 @@ NAME=philo
 # Path
 SRC_PATH = ./
 OBJ_PATH = ./objs/
-INCDIR = includes
+INCDIR = Includes
 
 # Name
-SRC_NAME = main.c          \
-		   ft_atoi.c       \
-		   ft_init_info.c  \
-		   ft_init_philo.c \
-		   ft_clear_philo.c\
-		   ft_launcher.c   \
-		   ft_utils.c      \
-		   ft_routine.c    \
-		   ft_check_philo.c 
+SRC_NAME = main.c       \
+		   ft_atoi.c    \
+		   init_info.c  \
+		   init_philo.c \
+		   clear_philo.c\
+		   launcher.c   \
+		   utils.c      \
+		   routine.c    \
+		   check_philo.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

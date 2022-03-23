@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_philo.c                                    :+:      :+:    :+:   */
+/*   init_philo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:23:26 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 17:44:50 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/23 11:04:26 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "Includes/philo.h"
 
-t_philosopher	*ft_add_new_philo(t_info info, int index)
+static t_philosopher	*add_new_philo(t_info info, int index)
 {
 	t_philosopher	*new;
 
@@ -32,7 +32,7 @@ t_philosopher	*ft_add_new_philo(t_info info, int index)
 	return (new);
 }
 
-void	ft_add_back_philo(t_philosopher **philo, t_philosopher *new)
+static void	add_back_philo(t_philosopher **philo, t_philosopher *new)
 {
 	t_philosopher	*tmp;
 
@@ -47,12 +47,12 @@ void	ft_add_back_philo(t_philosopher **philo, t_philosopher *new)
 	}
 }
 
-t_bool	ft_init_philo(t_philosopher **philo, t_info info)
+t_bool	init_philo(t_philosopher **philo, t_info info)
 {
 	int	index;
 
 	index = 0;
 	while (++index <= info.number_of_philosophers)
-		ft_add_back_philo(philo, ft_add_new_philo(info, index));
+		add_back_philo(philo, add_new_philo(info, index));
 	return (TRUE);
 }

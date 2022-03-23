@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:26:57 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 17:22:08 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/23 11:01:52 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "Includes/philo.h"
 
 void	ft_putnbr(int nb)
 {
@@ -35,7 +35,7 @@ void	ft_putstr(char *str)
 		write(1, &str[index], 1);
 }
 
-void	ft_put_message(t_philosopher *philo, int message)
+void	put_message(t_philosopher *philo, int message)
 {
 	int		actu_time;
 
@@ -43,7 +43,7 @@ void	ft_put_message(t_philosopher *philo, int message)
 	pthread_mutex_lock(philo->info.writter);
 	if (philo->dead == FALSE)
 	{	
-		actu_time = ft_time() - philo->info.time_to_start;
+		actu_time = get_time() - philo->info.time_to_start;
 		if (message == THINK)
 			printf("%d ms philo numero %d is thinking\n", actu_time, philo->id);
 		else if (message == SLEEP)
@@ -60,7 +60,7 @@ void	ft_put_message(t_philosopher *philo, int message)
 	pthread_mutex_unlock(&philo->deadischeck);
 }
 
-long long int	ft_time(void)
+long long int	get_time(void)
 {
 	struct timeval	current_time;
 
@@ -68,13 +68,13 @@ long long int	ft_time(void)
 	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 }
 
-void	ft_smart_usleep(int time)
+void	smart_usleep(int time)
 {
 	long long int	rules;
 	long long int	start;
 
 	rules = (long long int) time;
-	start = ft_time();
-	while (ft_time() - start < rules)
+	start = get_time();
+	while (get_time() - start < rules)
 		usleep(50);
 }

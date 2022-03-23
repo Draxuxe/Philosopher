@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_launcher.c                                      :+:      :+:    :+:   */
+/*   launcher.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:36:59 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/21 15:38:23 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/23 10:57:01 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "Includes/philo.h"
 
-void	ft_launcher(t_philosopher *philo)
+void	launcher(t_philosopher *philo)
 {
 	int				err;
 	t_philosopher	*tmp;
@@ -26,7 +26,7 @@ void	ft_launcher(t_philosopher *philo)
 		tmp = tmp->next;
 	}
 	tmp = philo;
-	err = pthread_create(&tmp->monitor, NULL, ft_check_philo, tmp);
+	err = pthread_create(&tmp->monitor, NULL, check_philo, tmp);
 	if (err)
 		pthread_detach(tmp->monitor);
 	while (tmp)

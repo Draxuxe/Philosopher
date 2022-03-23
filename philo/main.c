@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:07:15 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 17:27:10 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/23 10:57:01 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "Includes/philo.h"
 
 int	main(int argc, char **argv)
 {
@@ -18,11 +18,11 @@ int	main(int argc, char **argv)
 	t_philosopher	*philo;
 
 	philo = NULL;
-	if (!ft_init_info(argc, argv, &info))
+	if (!init_info(argc, argv, &info))
 		return (0);
-	ft_init_philo(&philo, info);
-	ft_launcher(philo);
-	ft_clear_info(&info);
-	ft_clear_philo(&philo);
+	init_philo(&philo, info);
+	launcher(philo);
+	clear_info(&info);
+	clear_philo(&philo);
 	return (0);
 }

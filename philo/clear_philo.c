@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_philo.c                                   :+:      :+:    :+:   */
+/*   clear_philo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:58:26 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/21 13:55:18 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/23 10:57:00 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "Includes/philo.h"
 
-t_bool	ft_clear_philo(t_philosopher **philo)
+t_bool	clear_philo(t_philosopher **philo)
 {
 	t_philosopher	*tmp;
 	t_philosopher	*clear;
@@ -28,7 +28,7 @@ t_bool	ft_clear_philo(t_philosopher **philo)
 	return (TRUE);
 }
 
-t_bool	ft_clear_info(t_info *info)
+t_bool	clear_info(t_info *info)
 {
 	int	index;
 

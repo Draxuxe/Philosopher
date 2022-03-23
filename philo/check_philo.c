@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_philo.c                                   :+:      :+:    :+:   */
+/*   check_philo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleferra <aleferra@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:31:36 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/22 16:54:55 by aleferra         ###   ########.fr       */
+/*   Updated: 2022/03/23 10:56:59 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "Includes/philo.h"
 
-void	ft_all_dead(t_philosopher *philo)
+static void	all_dead(t_philosopher *philo)
 {	
 	while (philo)
 	{
@@ -23,13 +23,13 @@ void	ft_all_dead(t_philosopher *philo)
 	}
 }
 
-t_bool	ft_is_dead(t_philosopher *philo)
+static t_bool	is_dead(t_philosopher *philo)
 {
-	if (philo->info.time_to_die <= ft_time() - philo->info.time_to_start
+	if (philo->info.time_to_die <= get_time() - philo->info.time_to_start
 		- philo->last_meal)
 	{
 		pthread_mutex_unlock(&philo->nocrash);
-		ft_put_message(philo, DIE);
+		put_message(philo, DIE);
 		pthread_mutex_lock(&philo->deadischeck);
 		philo->dead = TRUE;
 		pthread_mutex_unlock(&philo->deadischeck);
@@ -38,7 +38,7 @@ t_bool	ft_is_dead(t_philosopher *philo)
 	return (FALSE);
 }
 
-t_bool	ft_is_full_meal(t_philosopher *philo)
+static t_bool	is_full_meal(t_philosopher *philo)
 {
 	if (philo->info.number_of_times_each_philosopher_must_eat == -1)
 		return (FALSE);
@@ -57,7 +57,7 @@ t_bool	ft_is_full_meal(t_philosopher *philo)
 	return (TRUE);
 }
 
-void	*ft_check_philo(void *arg)
+void	*check_philo(void *arg)
 {
 	t_philosopher	*philo;
 	t_bool			end_time;
@@ -71,7 +71,7 @@ void	*ft_check_philo(void *arg)
 		while (philo)
 		{
 			pthread_mutex_lock(&philo->nocrash);
-			if (ft_is_dead(philo) == TRUE)
+			if (is_dead(philo) == TRUE)
 			{
 				end_time = TRUE;
 				break ;
@@ -80,8 +80,8 @@ void	*ft_check_philo(void *arg)
 			philo = philo->next;
 		}
 		philo = (t_philosopher *)arg;
-		end_full_meal = ft_is_full_meal(philo);
+		end_full_meal = is_full_meal(philo);
 	}
-	ft_all_dead(philo);
+	all_dead(philo);
 	return (NULL);
 }
