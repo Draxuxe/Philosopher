@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:08:51 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 10:45:42 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:07:20 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,32 +55,27 @@ typedef struct s_philosopher {
 	struct s_philosopher	*next;
 }				t_philosopher;
 
+/** Algo **/
 int					ft_atoi(const char *str);
 t_bool				init_info(int argc, char **argv, t_info *info);
 t_bool				init_philo(t_philosopher **philo, t_info info);
-t_bool				clear_philo(t_philosopher **philo);
 void				launcher(t_philosopher *philo);
-
-/** ft_utils **/
+/** Utils **/
 void				ft_putnbr(int nb);
 void				ft_putstr(char *str);
 void				put_message(t_philosopher *philo, int message);
 long long int		get_time(void);
 void				smart_usleep(int time);
-
-/** ft_routine **/
+/** Routine **/
+void				*routine(void *arg);
 void				take_fork(t_philosopher *philo);
 void				eat(t_philosopher *philo);
 void				go_sleep(t_philosopher *philo);
 void				*dead(void *arg);
-
-/** ft_clear **/
+/** Clear **/
+t_bool				clear_philo(t_philosopher **philo);
 t_bool				clear_info(t_info *info);
-
-/** ft_routine **/
-void				*routine(void *arg);
-
-/** ft_check_philo **/
+/** Check **/
 void				*check_philo(void *arg);
 
 #endif
