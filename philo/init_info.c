@@ -6,7 +6,7 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 15:39:58 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 12:01:06 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:04:49 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static t_bool	str_is_int(char *str)
 	if (((index == 10 && ft_strncmp(str, "2147483647", 10) <= 0) || index < 10)
 		&& ft_atoi(str) >= 1)
 		return (TRUE);
-	ft_putstr("Arguments must not be greater than the int max or lower than 1.\n");
+	ft_putstr("Arguments must not be greater than int max or lower than 1.\n");
 	return (FALSE);
 }
 
