@@ -23,7 +23,7 @@ NAME=philo
 # Path
 SRC_PATH = ./
 OBJ_PATH = ./objs/
-INCDIR = Includes
+INCDIR = includes
 
 # Name
 SRC_NAME = main.c       \

@@ -6,11 +6,11 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:26:57 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 11:01:52 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:09:04 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/philo.h"
+#include "includes/philo.h"
 
 void	ft_putnbr(int nb)
 {

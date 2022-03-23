@@ -6,11 +6,11 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:24:55 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 10:57:00 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:09:03 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/philo.h"
+#include "includes/philo.h"
 
 int	ft_atoi(const char *str)
 {

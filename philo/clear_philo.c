@@ -6,11 +6,11 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:58:26 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 10:57:00 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:09:02 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/philo.h"
+#include "includes/philo.h"
 
 t_bool	clear_philo(t_philosopher **philo)
 {

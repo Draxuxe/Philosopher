@@ -6,11 +6,11 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:21:08 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 11:54:24 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:09:04 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/philo.h"
+#include "includes/philo.h"
 
 static void	wait_pair(t_philosopher *philo)
 {

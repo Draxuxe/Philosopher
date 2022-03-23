@@ -6,11 +6,11 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 15:39:58 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 12:04:49 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:09:03 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/philo.h"
+#include "includes/philo.h"
 
 static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

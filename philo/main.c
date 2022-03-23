@@ -6,11 +6,11 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:07:15 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 10:57:01 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:09:03 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/philo.h"
+#include "includes/philo.h"
 
 int	main(int argc, char **argv)
 {

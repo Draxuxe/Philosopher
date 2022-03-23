@@ -6,11 +6,11 @@
 /*   By: lfilloux <lfilloux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:23:26 by aleferra          #+#    #+#             */
-/*   Updated: 2022/03/23 11:04:26 by lfilloux         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:09:03 by lfilloux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/philo.h"
+#include "includes/philo.h"
 
 static t_philosopher	*add_new_philo(t_info info, int index)
 {
